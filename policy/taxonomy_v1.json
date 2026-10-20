@@ -1,0 +1,150 @@
+{
+  "policy_id": "tariff-research-policy",
+  "policy_version": "1.0.0",
+  "effective_date": "2026-10-19",
+  "status": "implementation_baseline",
+  "controlled_values": {
+    "effect_category": [
+      {
+        "value": "refund",
+        "label": "Refund",
+        "definition": "Explicit repayment or return of duties or tariffs already paid.",
+        "benefit": true,
+        "public_eligible": true,
+        "aggregation_eligible": false
+      },
+      {
+        "value": "duty_drawback",
+        "label": "Duty drawback",
+        "definition": "Explicitly stated statutory or customs duty-drawback benefit.",
+        "benefit": true,
+        "public_eligible": true,
+        "aggregation_eligible": false
+      },
+      {
+        "value": "exclusion_or_waiver",
+        "label": "Exclusion or waiver",
+        "definition": "Exemption, exclusion, waiver, or similar relief that avoids a charge.",
+        "benefit": true,
+        "public_eligible": true,
+        "aggregation_eligible": false
+      },
+      {
+        "value": "reimbursement_or_offset",
+        "label": "Reimbursement or offset",
+        "definition": "Third-party reimbursement, credit, or offset for a tariff effect.",
+        "benefit": true,
+        "public_eligible": true,
+        "aggregation_eligible": false
+      },
+      {
+        "value": "other_explicit_benefit",
+        "label": "Other explicit benefit",
+        "definition": "Another explicitly stated positive tariff-related economic effect whose mechanism is retained verbatim.",
+        "benefit": true,
+        "public_eligible": true,
+        "aggregation_eligible": false
+      },
+      {
+        "value": "tariff_effect_not_benefit",
+        "label": "Tariff effect, not a benefit",
+        "definition": "Tariff cost, risk, exposure, neutral disclosure, or another non-benefit effect.",
+        "benefit": false,
+        "public_eligible": false,
+        "aggregation_eligible": false
+      },
+      {
+        "value": "unclassified",
+        "label": "Unclassified",
+        "definition": "Candidate awaiting review or with an unresolved source or claim boundary.",
+        "benefit": false,
+        "public_eligible": false,
+        "aggregation_eligible": false
+      }
+    ],
+    "assertion_strength": [
+      {
+        "value": "explicit",
+        "definition": "The source directly states both the tariff connection and positive economic effect.",
+        "public_eligible": true,
+        "aggregation_eligible": false
+      },
+      {
+        "value": "explicit_amount_link_ambiguous",
+        "definition": "An amount is explicit, but its tariff linkage or benefit mechanism is not fully clear.",
+        "public_eligible": false,
+        "aggregation_eligible": false
+      },
+      {
+        "value": "qualitative_explicit",
+        "definition": "The benefit and tariff connection are explicit, but no amount is stated.",
+        "public_eligible": true,
+        "aggregation_eligible": false
+      },
+      {
+        "value": "not_sufficient",
+        "definition": "Evidence retained as a rejected or unresolved candidate that does not meet the explicit-claim threshold.",
+        "public_eligible": false,
+        "aggregation_eligible": false
+      }
+    ],
+    "research_case_status": [
+      "not_started",
+      "in_progress",
+      "candidate_found",
+      "no_qualifying_disclosure_found",
+      "needs_review",
+      "complete",
+      "stale"
+    ],
+    "review_decision": [
+      "approved",
+      "rejected",
+      "needs_clarification",
+      "superseded"
+    ],
+    "ambiguity_flag": [
+      "entity_ambiguous",
+      "mechanism_ambiguous",
+      "amount_ambiguous",
+      "period_ambiguous",
+      "tariff_connection_ambiguous",
+      "contradictory_source",
+      "rights_unresolved"
+    ]
+  },
+  "publication_rules": {
+    "requires_reviewed_market_cap_membership": true,
+    "requires_primary_source": true,
+    "requires_approved_evidence_excerpt": true,
+    "requires_current_policy_review": true,
+    "requires_permitted_public_quote_rights": true,
+    "automatic_publication": false,
+    "refund_requires_explicit_repayment_or_return": true,
+    "missing_disclosure_is_not_a_negative_claim": true,
+    "launch_cross_claim_aggregate": false
+  },
+  "source_classes": {
+    "primary_eligible": [
+      "sec_filing_or_exhibit",
+      "issuer_hosted_ir_material",
+      "issuer_authorized_vendor_transcript",
+      "government_record_directly_identifying_company_effect",
+      "other_official_issuer_material_accepted_by_review"
+    ],
+    "lead_only": [
+      "secondary_reporting",
+      "analyst_research",
+      "search_snippet",
+      "blog_or_commentary",
+      "unauthorized_transcript",
+      "machine_only_transcript",
+      "ai_summary"
+    ],
+    "scope_input_not_claim_evidence": [
+      "market_cap_snapshot"
+    ]
+  },
+  "rights_default": "reference_only",
+  "no_qualifying_disclosure_wording": "No qualifying disclosure found under the documented search scope and date range. This does not mean no benefit exists."
+}
