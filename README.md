@@ -24,3 +24,8 @@ versions, locatable evidence excerpts, primary-source and transcript
 authorization gates, reference-only default retention, rights/takedown history,
 transient-artifact cleanup, and a safe fetch boundary. See
 [`docs/evidence_capture_v1.md`](docs/evidence_capture_v1.md) for the contract.
+
+`tariff_dashboard.research` provides one immutable research case per reviewed
+cohort membership, the v1 atomic disclosure-claim taxonomy, append-only review
+decisions, no-result lifecycle handling, and independent publication gates. See
+[`docs/research_cases_v1.md`](docs/research_cases_v1.md) for the contract.
