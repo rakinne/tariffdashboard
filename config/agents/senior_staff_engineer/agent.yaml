@@ -1,0 +1,7 @@
+name: senior_staff_engineer
+display_name: Senior Staff Engineer
+description: Designs and implements the tariff dashboard from data foundation through product surface.
+instructions_file: AGENT.md
+reports_to: project_manager
+consults:
+  - research_governance

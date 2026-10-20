@@ -1,0 +1,7 @@
+name: project_manager
+display_name: Project Manager
+description: Plans, sequences, and coordinates delivery of the tariff dashboard.
+instructions_file: AGENT.md
+handoffs:
+  - senior_staff_engineer
+  - research_governance

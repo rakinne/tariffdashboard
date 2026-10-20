@@ -1,0 +1,7 @@
+name: research_governance
+display_name: Research & Governance
+description: Defines evidence, rights, taxonomy, and review rules for tariff research.
+instructions_file: AGENT.md
+reports_to: project_manager
+consults:
+  - senior_staff_engineer
