@@ -75,6 +75,7 @@ from .research import (
     SearchLogEntry,
     V1_POLICY_VERSION,
 )
+from .projection import ApprovedClaim, project_approved_claims, project_claim
 
 __all__ = [
     "AuthenticatedActor",
@@ -146,4 +147,7 @@ __all__ = [
     "ReviewError",
     "SearchLogEntry",
     "V1_POLICY_VERSION",
+    "ApprovedClaim",
+    "project_approved_claims",
+    "project_claim",
 ]
