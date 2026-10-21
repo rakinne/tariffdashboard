@@ -17,6 +17,16 @@
     "accession": "0000027419-26-000042",
     "period_of_report": "2026-08-01",
     "filed_at": "2026-08-28",
+    "retrieved_at": "2026-10-20T00:00:00Z",
+    "content_type": "text/html",
+    "content_length": 1123593,
+    "content_fingerprint": "db95c5f90eb5368ef38d60bc3f7d88d26b1152a460530e11f97c877b55884d5f",
+    "accessibility": "accessible",
+    "locators": {
+      "refund_note": "Note 3, Tariff Refunds, page 9",
+      "management_discussion": "MD&A, Business Environment, page 14",
+      "financial_summary": "MD&A, Financial Summary, page 18"
+    },
     "rights": {
       "decision": "needs_review",
       "public_quote_permission": false,
@@ -24,6 +34,7 @@
       "retention_class": "reference_only"
     }
   },
+  "capture_status": "captured_metadata_and_fingerprint; pending_excerpt_and_rights_review",
   "records": [
     {
       "record_id": "target-q2-2026-refund-recognized",
