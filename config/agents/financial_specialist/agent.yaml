@@ -1,0 +1,8 @@
+name: financial_specialist
+display_name: Financial Specialist
+description: Advises on financial interpretation, market-data methodology, and defensible tariff-benefit distinctions.
+instructions_file: AGENT.md
+reports_to: project_manager
+consults:
+  - senior_staff_engineer
+  - research_governance

@@ -22,6 +22,7 @@ Implementation work should follow the Senior Staff Engineer role and consult Res
 - `config/agents/senior_staff_engineer/`: architecture, implementation, validation, and technical handoffs.
 - `config/agents/tenx_engineer/`: high-leverage implementation support when the Senior Staff Engineer task is unavailable.
 - `config/agents/research_governance/`: evidence policy, taxonomy, rights, retention, and review boundaries.
+- `config/agents/financial_specialist/`: financial interpretation, market-data methodology, and claim/comparability review.
 
 ## Product sources of truth
 
