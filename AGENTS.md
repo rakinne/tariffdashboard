@@ -16,10 +16,18 @@ The repository is at an early foundation stage. Prefer small, tested vertical sl
 
 Implementation work should follow the Senior Staff Engineer role and consult Research & Governance before introducing domain claims or evidence fields. Project coordination should follow the Project Manager role.
 
+## Agent directory map
+
+- `config/agents/project_manager/`: sequencing, acceptance criteria, coordination, and delivery status.
+- `config/agents/senior_staff_engineer/`: architecture, implementation, validation, and technical handoffs.
+- `config/agents/tenx_engineer/`: high-leverage implementation support when the Senior Staff Engineer task is unavailable.
+- `config/agents/research_governance/`: evidence policy, taxonomy, rights, retention, and review boundaries.
+
 ## Product sources of truth
 
 - Linear project: Tariff Refund Dashboard
 - Initial implementation sequence: FOO-7, FOO-10, then FOO-8/FOO-9
+- FOO-11 design baseline: `docs/design_decisions/FOO-11-evidence-atlas-design.md`
 - Scope and architecture decisions live in the linked Linear documents and issues; do not silently broaden them.
 
 ## Repository rules

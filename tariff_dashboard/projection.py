@@ -6,7 +6,13 @@ from dataclasses import asdict, dataclass
 from datetime import datetime
 
 from .evidence import EvidenceRepository
-from .research import DisclosureClaim, ResearchRepository
+from .research import DisclosureClaim, ResearchCaseStatus, ResearchRepository
+
+
+PUBLIC_NO_RESULT_WORDING = (
+    "No qualifying disclosure found under the documented search scope and date range. "
+    "This does not mean no benefit exists."
+)
 
 
 @dataclass(frozen=True, slots=True)
@@ -31,6 +37,18 @@ class ApprovedClaim:
     source_retrieved_at: datetime
     source_locator: dict[str, object]
     policy_version: str
+    as_of: datetime
+    membership_id: str | None = None
+    snapshot_id: str | None = None
+    exact_quote: str | None = None
+    surrounding_context: str | None = None
+    review_status: str = "approved"
+    reviewed_at: datetime | None = None
+    rights_status: str = "public_quote_permitted"
+    source_accessibility: str | None = None
+    source_class: str | None = None
+    source_fingerprint: str | None = None
+    ambiguity_flags: tuple[str, ...] = ()
 
     def to_dict(self) -> dict[str, object]:
         return asdict(self)
@@ -81,6 +99,54 @@ def project_claim(
         source_retrieved_at=source.retrieved_at,
         source_locator=_locator_fields(excerpt.locator),
         policy_version=claim.policy_version,
+        as_of=at,
+        membership_id=claim.membership_id,
+        snapshot_id=research_repository.get_case(claim.case_id).snapshot_id,
+        exact_quote=excerpt.exact_quote,
+        surrounding_context=excerpt.surrounding_context,
+        reviewed_at=research_repository.latest_review_decision(claim.claim_id).decided_at,
+        rights_status="public_quote_permitted",
+        source_accessibility=source.accessibility.value,
+        source_class=source.source_class.value,
+        source_fingerprint=source.content_fingerprint,
+        ambiguity_flags=tuple(flag.value for flag in claim.ambiguity_flags),
+    )
+
+
+@dataclass(frozen=True, slots=True)
+class PublicCaseSummary:
+    """A public coverage state that is not itself a claim."""
+
+    case_id: str
+    company_id: str
+    membership_id: str
+    snapshot_id: str
+    status: str
+    policy_version: str
+    completed_at: datetime
+    wording: str = PUBLIC_NO_RESULT_WORDING
+
+    def to_dict(self) -> dict[str, object]:
+        return asdict(self)
+
+
+def project_no_result_case(case, *, at: datetime) -> PublicCaseSummary:
+    """Project a completed no-result case without turning absence into a claim."""
+
+    if case.status is not ResearchCaseStatus.NO_QUALIFYING_DISCLOSURE_FOUND:
+        raise ValueError("only completed no-result cases can cross the public boundary")
+    if case.completed_at is None:
+        raise ValueError("no-result cases require completed_at")
+    if case.completed_at > at:
+        raise ValueError("no-result case cannot be projected before completion")
+    return PublicCaseSummary(
+        case_id=case.case_id,
+        company_id=case.company_id,
+        membership_id=case.membership_id,
+        snapshot_id=case.snapshot_id,
+        status=case.status.value,
+        policy_version=case.policy_version,
+        completed_at=case.completed_at,
     )
 
 
@@ -91,7 +157,7 @@ def project_approved_claims(
     evidence_repository: EvidenceRepository,
     at: datetime,
 ) -> tuple[ApprovedClaim, ...]:
-    """Project a deterministic, claim-id ordered public collection."""
+    """Project a deterministic company-then-claim ordered public collection."""
 
     return tuple(
         project_claim(
@@ -100,8 +166,15 @@ def project_approved_claims(
             evidence_repository=evidence_repository,
             at=at,
         )
-        for claim in sorted(claims, key=lambda item: item.claim_id)
+        for claim in sorted(claims, key=lambda item: (item.company_id, item.claim_id))
     )
 
 
-__all__ = ["ApprovedClaim", "project_approved_claims", "project_claim"]
+__all__ = [
+    "ApprovedClaim",
+    "PUBLIC_NO_RESULT_WORDING",
+    "PublicCaseSummary",
+    "project_approved_claims",
+    "project_claim",
+    "project_no_result_case",
+]
