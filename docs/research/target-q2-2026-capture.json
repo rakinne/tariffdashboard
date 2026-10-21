@@ -1,0 +1,70 @@
+{
+  "capture_id": "target-q2-2026-sec-10q",
+  "company": {
+    "name": "Target Corporation",
+    "ticker": "TGT",
+    "cik": "0000027419"
+  },
+  "source": {
+    "document_id": "target-sec-10q-2026-q2-v1",
+    "source_key": "sec:0000027419-26-000042:tgt-20260801.htm",
+    "version": 1,
+    "source_class": "sec_filing_or_exhibit",
+    "publisher": "U.S. Securities and Exchange Commission",
+    "title": "Target Corporation Form 10-Q for the quarter ended August 1, 2026",
+    "original_url": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000042/tgt-20260801.htm",
+    "canonical_url": "https://www.sec.gov/Archives/edgar/data/27419/000002741926000042/tgt-20260801.htm",
+    "accession": "0000027419-26-000042",
+    "period_of_report": "2026-08-01",
+    "filed_at": "2026-08-28",
+    "rights": {
+      "decision": "needs_review",
+      "public_quote_permission": false,
+      "raw_artifact_permission": false,
+      "retention_class": "reference_only"
+    }
+  },
+  "records": [
+    {
+      "record_id": "target-q2-2026-refund-recognized",
+      "record_type": "disclosure_claim",
+      "effect_category": "refund",
+      "assertion_strength": "explicit",
+      "summary": "Target recognized $994 million related to IEEPA tariff refunds received during Q2 2026 as a reduction of Cost of Sales.",
+      "amount_as_quoted": "$994 million",
+      "currency": "USD",
+      "unit": "millions",
+      "event_period": "Q2 2026",
+      "tariff_program": "International Emergency Economic Powers Act (IEEPA)",
+      "source_locator": {
+        "section": "Note 3 — Tariff Refunds",
+        "filing": "Form 10-Q",
+        "period_of_report": "2026-08-01"
+      },
+      "review_status": "needs_review",
+      "publication_status": "blocked_rights_review",
+      "blocking_flags": ["rights_unresolved"]
+    },
+    {
+      "record_id": "target-q2-2026-refund-claims-outstanding",
+      "record_type": "disclosure_claim",
+      "effect_category": "refund",
+      "assertion_strength": "not_sufficient",
+      "summary": "Target continues to pursue additional refund claims; outstanding claims as of August 1, 2026 were not recognized in the financial statements.",
+      "amount_as_quoted": null,
+      "currency": null,
+      "unit": null,
+      "event_period": "as of 2026-08-01",
+      "tariff_program": "International Emergency Economic Powers Act (IEEPA)",
+      "source_locator": {
+        "section": "Note 3 — Tariff Refunds",
+        "filing": "Form 10-Q",
+        "period_of_report": "2026-08-01"
+      },
+      "review_status": "needs_review",
+      "publication_status": "blocked_insufficient_assertion",
+      "blocking_flags": ["rights_unresolved"],
+      "claim_boundary": "Do not infer an amount, recognition, approval, or no-benefit conclusion from this record."
+    }
+  ]
+}

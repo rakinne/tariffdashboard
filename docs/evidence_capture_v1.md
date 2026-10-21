@@ -2,8 +2,9 @@
 
 This repository implements the FOO-8/FOO-14 foundation in
 `tariff_dashboard.evidence`. It is metadata-first and does not fetch, proxy, or
-archive Target material. Target may be used as a future research queue seed,
-but this slice contains no Target claim or source content.
+archive Target material. The metadata-only Target research capture under
+`docs/research/` is pending review and contains no archived source body or
+durable quote; it is not public evidence.
 
 ## Source versions
 
